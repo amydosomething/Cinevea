@@ -1,0 +1,28 @@
+import type React from "react"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
+import { ThemeProviderWrapper } from "@/components/theme-provider-wrapper"
+
+const inter = Inter({ subsets: ["latin"] })
+
+export const metadata: Metadata = {
+  title: "Cinevea - Movie Recommendations",
+  description: "Personalized movie recommendations and review aggregation platform",
+    generator: 'v0.dev'
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
+      </body>
+    </html>
+  )
+}
+
